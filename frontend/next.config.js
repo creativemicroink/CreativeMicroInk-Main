@@ -134,16 +134,8 @@ const nextConfig = {
     return [];
   },
 
-  // Webpack configuration
-  webpack: (config, { isServer, dev }) => {
-    // Production optimizations
-    if (!dev && !isServer) {
-      // Enable tree shaking
-      config.optimization.usedExports = true;
-    }
-
-    return config;
-  },
+  // Turbopack configuration (Next.js 16+ default)
+  turbopack: {},
 
   // Output configuration for deployment
   output: 'standalone',
