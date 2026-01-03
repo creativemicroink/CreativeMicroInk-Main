@@ -1,0 +1,62 @@
+/* Booking / Services styling: sleeker, modern look */
+:root{--bg:#FAF7F2;--muted:#9B9B9B;--accent:#D4A574;--accent-2:#C8A2A2;--text:#2D2D2D;--card:#ffffff;--radius:16px}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--text);font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;line-height:1.5;margin:0}
+.container{max-width:1200px;margin:0 auto;padding:3rem 1.25rem}
+.site-header, header.site-header{display:flex;align-items:center;justify-content:space-between;padding:1rem 0}
+.logo{font-weight:700;font-size:1.125rem}
+.hero, .hero-section{padding:5rem 0 3rem;text-align:center}
+.hero h1, .hero-section .hero-title, .hero-section .wp-block-heading{font-size:3.25rem;margin:0 0 0.5rem;letter-spacing:-0.01em}
+.hero p, .hero-section .hero-subtitle{color:var(--muted);margin:0 0 1.25rem;font-weight:300}
+.btn{display:inline-block;background:var(--accent);color:#fff;padding:.85rem 1.5rem;border-radius:12px;text-decoration:none;font-weight:600}
+
+.services{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:1.5rem;margin-top:2.25rem}
+.service-card, .card{background:var(--card);border-radius:var(--radius);padding:1.5rem;box-shadow:0 12px 30px rgba(17,24,39,0.06);transition:transform .22s cubic-bezier(.2,.9,.3,1),box-shadow .22s}
+.service-card:hover, .card:hover{transform:translateY(-8px);box-shadow:0 30px 80px rgba(17,24,39,0.09)}
+.service-card h3, .service-card .service-title{margin:0 0 .5rem;font-size:1.125rem}
+.service-card .meta, .service-card .service-description{font-size:.95rem;color:var(--muted);margin-bottom:.5rem}
+.service-card .price, .service-card .service-price{font-weight:700;color:var(--accent);margin-bottom:.75rem}
+.service-card .service-duration{color:var(--muted);font-size:.95rem}
+
+.promos{margin-top:2rem;display:flex;flex-wrap:wrap;gap:1rem}
+.promo{background:linear-gradient(180deg, #fff, #fff);padding:.75rem 1rem;border-radius:12px;border:1px solid rgba(0,0,0,0.04);box-shadow:0 10px 30px rgba(17,24,39,0.04)}
+
+#booking-modal{display:none;align-items:center;justify-content:center}
+#booking-modal iframe{width:100%;height:720px;border:0}
+
+/* Footer adjustments to align with sleek theme */
+.site-footer{background:transparent;padding-top:3rem;padding-bottom:2rem}
+.site-footer .wp-block-group{max-width:1200px;margin:0 auto}
+
+/* Responsive tweaks */
+@media (max-width:900px){
+  .hero h1, .hero-section .hero-title{font-size:2.25rem}
+  .container{padding:2rem 1rem}
+}
+@media (max-width:600px){
+  .services{grid-template-columns:1fr}
+  #booking-modal iframe{height:560px}
+}
+
+/* Header styling */
+.site-header{background:transparent;padding:1rem 0}
+.site-header .wp-block-group{max-width:1200px;margin:0 auto;display:flex;align-items:center;justify-content:space-between}
+.desktop-navigation .wp-block-navigation__container{display:flex;gap:1.5rem;align-items:center}
+.desktop-navigation a{color:var(--text);text-decoration:none;font-weight:500}
+.desktop-navigation a:hover{color:var(--accent)}
+.header-cta-button .wp-block-button__link{background:var(--accent)!important;border-radius:25px;padding:.6rem 1rem}
+
+/* Hero background and overlay */
+.hero-section{background:linear-gradient(180deg, rgba(255,255,255,0.6) 0%, rgba(250,247,242,0.6) 100%);position:relative}
+.hero-section::before{content:'';position:absolute;inset:0;background:linear-gradient(120deg, rgba(212,165,116,0.08), rgba(200,162,162,0.06));pointer-events:none}
+.hero-section .wp-block-group{position:relative;z-index:2}
+
+/* Footer refinements */
+.site-footer{background:var(--text);color:#fff;padding-top:4rem;padding-bottom:2rem}
+.site-footer a{color:rgba(255,255,255,0.9)}
+.site-footer a:hover{color:var(--accent)}
+.site-footer .footer-list li{margin-bottom:.6rem}
+
+/* Small utilities */
+.muted{color:var(--muted)}
+.center{text-align:center}
