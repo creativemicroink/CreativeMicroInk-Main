@@ -13,6 +13,7 @@ services:
 
     # Build Configuration
     buildCommand: npm ci --include=dev && npm run build
+    preDeployCommand: node dist/db/setup.js
     startCommand: npm start
 
     # Health Check
@@ -41,6 +42,10 @@ services:
       - key: CLOUDINARY_API_SECRET
         sync: false
       - key: CLOUDINARY_UPLOAD_PRESET
+        sync: false
+      - key: ADMIN_EMAIL
+        sync: false
+      - key: ADMIN_PASSWORD
         sync: false
 
     # Auto-deploy on push
