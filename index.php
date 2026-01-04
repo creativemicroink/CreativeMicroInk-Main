@@ -161,7 +161,7 @@
                     <div class="footer-info">
                         <h3><?php bloginfo('name'); ?></h3>
                         <p class="footer-text">Professional permanent makeup services</p>
-                        <p class="footer-text">Email: info@creativemicroink.com</p>
+                        <p class="footer-text">Email: Creativemicroink@gmail.com</p>
                         <p class="footer-text">Phone: (555) 123-4567</p>
                     </div>
                     

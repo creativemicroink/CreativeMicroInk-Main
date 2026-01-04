@@ -178,7 +178,7 @@ const SERVICES_DATA: ServiceData[] = [
 const SITE_SETTINGS: SiteSetting[] = [
   { key: 'site_name', value: 'CreativeMicroInk' },
   { key: 'site_description', value: 'Professional permanent makeup services to give you confidence and save time every day.' },
-  { key: 'contact_email', value: 'info@creativemicroink.com' },
+  { key: 'contact_email', value: 'Creativemicroink@gmail.com' },
   { key: 'contact_phone', value: '(555) 123-4567' },
   { key: 'address', value: '123 Beauty Lane, Suite 100, Los Angeles, CA 90001' },
   {

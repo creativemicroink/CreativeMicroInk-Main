@@ -19,7 +19,7 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 // Configuration
-const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'admin@creativemicroink.com';
+const ADMIN_EMAIL = process.env.ADMIN_EMAIL || 'Creativemicroink@gmail.com';
 const ADMIN_PASSWORD = process.env.ADMIN_PASSWORD || 'changeme123';
 const ADMIN_NAME = process.env.ADMIN_NAME || 'Admin';
 const BCRYPT_ROUNDS = 12;

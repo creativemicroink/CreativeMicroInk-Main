@@ -77,7 +77,7 @@ CREATE INDEX IF NOT EXISTS idx_site_settings_key ON site_settings(key);
 INSERT INTO site_settings (key, value) VALUES
     ('site_name', 'Creative Micro Inc'),
     ('site_description', 'Professional microblading and beauty services'),
-    ('contact_email', 'info@creativemicro.com'),
+    ('contact_email', 'Creativemicroink@gmail.com'),
     ('contact_phone', ''),
     ('address', ''),
     ('business_hours', ''),
@@ -95,7 +95,7 @@ ON CONFLICT (key) DO NOTHING;
 -- IMPORTANT: Change this password immediately after first login!
 -- ============================================
 INSERT INTO users (email, password_hash, name) VALUES
-    ('admin@creativemicro.com', '$2a$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/X4.Nq9xLvlgqK1rXi', 'Admin')
+    ('Creativemicroink@gmail.com', '$2a$12$LQv3c1yqBWVHxkd0LHAkCOYz6TtxMQJqhN8/X4.Nq9xLvlgqK1rXi', 'Admin')
 ON CONFLICT (email) DO NOTHING;
 
 -- ============================================
