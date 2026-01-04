@@ -7,10 +7,10 @@ import { apiClient, GalleryImage } from '@/lib/api';
 // Fallback gallery data with beauty stock images
 const fallbackImages: GalleryImage[] = [
   // Brows - Beauty portraits showing eyebrows
-  { id: '1', url: 'https://images.unsplash.com/photo-1588421357574-87938a86fa28?w=800&q=80', category: 'brows', alt: 'Powder Brows', order: 1 },
+  { id: '1', url: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=800&q=80', category: 'brows', alt: 'Powder Brows', order: 1 },
   { id: '2', url: 'https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=800&q=80', category: 'brows', alt: 'Ombre Brows', order: 2 },
   { id: '3', url: 'https://images.unsplash.com/photo-1508214751196-bcfd4ca60f91?w=800&q=80', category: 'brows', alt: 'Microblading', order: 3 },
-  { id: '4', url: 'https://images.unsplash.com/photo-1531746020798-e6953c6e8e04?w=800&q=80', category: 'brows', alt: 'Combo Brows', order: 4 },
+  { id: '4', url: 'https://images.unsplash.com/photo-1524504388940-b1c1722653e1?w=800&q=80', category: 'brows', alt: 'Combo Brows', order: 4 },
   { id: '5', url: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=800&q=80', category: 'brows', alt: 'Brow Lamination', order: 5 },
   { id: '6', url: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=800&q=80', category: 'brows', alt: 'Microshading', order: 6 },
   // Lips - Lip beauty shots
