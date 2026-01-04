@@ -131,10 +131,10 @@ export default function Home() {
               <div className="aspect-[4/5] rounded-card overflow-hidden shadow-elegant">
                 <EditableImage
                   settingKey="about_image"
-                  fallback="https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=800&q=80"
+                  fallback="/images/about-artist.png"
                   alt="About CreativeMicroInk"
                   fill
-                  className="object-cover"
+                  className="object-cover object-top"
                   containerClassName="relative w-full h-full"
                 />
               </div>

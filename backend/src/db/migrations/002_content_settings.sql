@@ -21,7 +21,7 @@ INSERT INTO site_settings (key, value) VALUES
     ('about_title', 'About Our Studio'),
     ('about_subtitle', 'Where Artistry Meets Precision'),
     ('about_description', 'With years of experience in permanent makeup artistry, we specialize in creating natural, beautiful enhancements that complement your unique features. Our commitment to excellence, safety, and personalized care ensures you leave feeling confident and beautiful.'),
-    ('about_image', 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?w=800&q=80'),
+    ('about_image', '/images/about-artist.png'),
     ('about_credentials', '["Certified PMU Artist", "5+ Years Experience", "1000+ Happy Clients"]')
 ON CONFLICT (key) DO NOTHING;
 
