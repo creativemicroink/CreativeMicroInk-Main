@@ -181,14 +181,10 @@ export default function Footer() {
                   />
                 </svg>
                 <a
-                  href={`mailto:${getSetting('contact_email', 'Creativemicroink@gmail.com')}`}
+                  href="mailto:Creativemicroink@gmail.com"
                   className="hover:text-gold transition-colors"
                 >
-                  <EditableText
-                    settingKey="contact_email"
-                    fallback="Creativemicroink@gmail.com"
-                    as="span"
-                  />
+                  Creativemicroink@gmail.com
                 </a>
               </li>
             </ul>
