@@ -1,6 +1,25 @@
 import { getToken } from './auth';
 
-const API_BASE_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3001/api';
+// Build API URL - ensure it always ends with /api
+function getApiBaseUrl(): string {
+  const envUrl = process.env.NEXT_PUBLIC_API_URL;
+
+  if (!envUrl) {
+    return 'http://localhost:3001/api';
+  }
+
+  // Remove trailing slash if present
+  let baseUrl = envUrl.replace(/\/$/, '');
+
+  // Ensure /api is at the end
+  if (!baseUrl.endsWith('/api')) {
+    baseUrl = baseUrl + '/api';
+  }
+
+  return baseUrl;
+}
+
+const API_BASE_URL = getApiBaseUrl();
 
 export interface Service {
   id: string;
