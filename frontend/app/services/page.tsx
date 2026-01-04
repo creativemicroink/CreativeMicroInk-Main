@@ -229,7 +229,7 @@ export default function ServicesPage() {
           </div>
 
           <div className="grid md:grid-cols-3 gap-8">
-            {/* Deal 1 - Bring a Friend */}
+            {/* Deal 1 - Brows + Friend */}
             <div className="group relative bg-gradient-to-br from-gold/5 to-gold/10 rounded-2xl p-8 border-2 border-gold/20 hover:border-gold/40 transition-all duration-300 hover:shadow-xl">
               <div className="absolute top-4 right-4">
                 <span className="px-3 py-1 bg-gold text-dark text-xs font-bold uppercase rounded-full">
@@ -242,20 +242,19 @@ export default function ServicesPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
                   </svg>
                 </div>
-                <h3 className="font-serif text-2xl text-dark mb-2">You & Friend Brows</h3>
-                <p className="text-muted mb-4">Bring a friend and both get beautiful brows at a special price!</p>
+                <h3 className="font-serif text-2xl text-dark mb-2">Brows + Friend</h3>
+                <p className="text-muted mb-4">Both you and a friend receive a brow style of your choice, for one bundled price!</p>
               </div>
-              <div className="flex items-baseline gap-2 mb-6">
+              <div className="flex items-baseline gap-2 mb-2">
                 <span className="text-4xl font-bold text-gold">$400</span>
-                <span className="text-muted line-through">$760</span>
-                <span className="text-sm text-green-600 font-medium">Save $360</span>
               </div>
+              <p className="text-sm text-muted mb-6">2 hr appointment</p>
               <Link href="/booking" className="block w-full text-center py-3 bg-dark text-white rounded-xl hover:bg-gold hover:text-dark transition-all font-medium">
                 Book Together
               </Link>
             </div>
 
-            {/* Deal 2 - Brows + Lips Combo */}
+            {/* Deal 2 - Brows & Lip Blush */}
             <div className="group relative bg-gradient-to-br from-rose-50 to-rose-100/50 rounded-2xl p-8 border-2 border-rose-200/50 hover:border-rose-300 transition-all duration-300 hover:shadow-xl">
               <div className="absolute top-4 right-4">
                 <span className="px-3 py-1 bg-rose-400 text-white text-xs font-bold uppercase rounded-full">
@@ -268,41 +267,41 @@ export default function ServicesPage() {
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
                   </svg>
                 </div>
-                <h3 className="font-serif text-2xl text-dark mb-2">Brows + Lip Blush</h3>
-                <p className="text-muted mb-4">Complete your look with perfect brows and luscious lips!</p>
+                <h3 className="font-serif text-2xl text-dark mb-2">Brows & Lip Blush</h3>
+                <p className="text-muted mb-4">Your choice of brows plus lip blush - complete your look in one session!</p>
               </div>
-              <div className="flex items-baseline gap-2 mb-6">
+              <div className="flex items-baseline gap-2 mb-2">
                 <span className="text-4xl font-bold text-rose-500">$400</span>
-                <span className="text-muted line-through">$780</span>
-                <span className="text-sm text-green-600 font-medium">Save $380</span>
               </div>
+              <p className="text-sm text-muted mb-6">2 hr appointment</p>
               <Link href="/booking" className="block w-full text-center py-3 bg-dark text-white rounded-xl hover:bg-rose-500 transition-all font-medium">
                 Get the Combo
               </Link>
             </div>
 
-            {/* Deal 3 - First Time Client */}
+            {/* Deal 3 - Removal Special */}
             <div className="group relative bg-gradient-to-br from-purple-50 to-purple-100/50 rounded-2xl p-8 border-2 border-purple-200/50 hover:border-purple-300 transition-all duration-300 hover:shadow-xl">
               <div className="absolute top-4 right-4">
                 <span className="px-3 py-1 bg-purple-500 text-white text-xs font-bold uppercase rounded-full">
-                  New Clients
+                  Save More
                 </span>
               </div>
               <div className="mb-6">
                 <div className="w-16 h-16 bg-purple-200/50 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
                   <svg className="w-8 h-8 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
                   </svg>
                 </div>
-                <h3 className="font-serif text-2xl text-dark mb-2">First Visit Special</h3>
-                <p className="text-muted mb-4">New to permanent makeup? Get a free consultation included!</p>
+                <h3 className="font-serif text-2xl text-dark mb-2">Removal Special</h3>
+                <p className="text-muted mb-4">Safe correction of faded or discolored pigment. Buy 5 sessions and save!</p>
               </div>
-              <div className="flex items-baseline gap-2 mb-6">
-                <span className="text-4xl font-bold text-purple-500">FREE</span>
-                <span className="text-muted">Consultation</span>
+              <div className="flex items-baseline gap-2 mb-2">
+                <span className="text-4xl font-bold text-purple-500">$125</span>
+                <span className="text-muted">/session</span>
               </div>
+              <p className="text-sm text-muted mb-6">1 hr appointment | 5 for $500</p>
               <Link href="/booking" className="block w-full text-center py-3 bg-dark text-white rounded-xl hover:bg-purple-500 transition-all font-medium">
-                Book Consultation
+                Book Removal
               </Link>
             </div>
           </div>
