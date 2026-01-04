@@ -4,17 +4,27 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { apiClient, GalleryImage } from '@/lib/api';
 
-// Fallback gallery data with stock images
+// Fallback gallery data with stock images matching actual services
 const fallbackImages: GalleryImage[] = [
-  { id: '1', url: 'https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=800&q=80', category: 'brows', alt: 'Natural Powder Brows', order: 1 },
-  { id: '2', url: 'https://images.unsplash.com/photo-1588421357574-87938a86fa28?w=800&q=80', category: 'brows', alt: 'Microblading Result', order: 2 },
-  { id: '3', url: 'https://images.unsplash.com/photo-1596704017254-9b121068fb31?w=800&q=80', category: 'lips', alt: 'Lip Blush Enhancement', order: 3 },
-  { id: '4', url: 'https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=800&q=80', category: 'brows', alt: 'Ombre Brows Result', order: 4 },
-  { id: '5', url: 'https://images.unsplash.com/photo-1583001931096-959e9a1a6223?w=800&q=80', category: 'lips', alt: 'Natural Lip Color', order: 5 },
-  { id: '6', url: 'https://images.unsplash.com/photo-1594359210750-ff5c5d383ca2?w=800&q=80', category: 'brows', alt: 'Combo Brows Result', order: 6 },
-  { id: '7', url: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&q=80', category: 'brows', alt: 'Defined Brow Shape', order: 7 },
-  { id: '8', url: 'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=800&q=80', category: 'lips', alt: 'Soft Lip Blush', order: 8 },
-  { id: '9', url: 'https://images.unsplash.com/photo-1607779097040-26e80aa78e66?w=800&q=80', category: 'brows', alt: 'Feathered Brows', order: 9 },
+  // Brows - Powder Brows (soft, filled-in makeup look)
+  { id: '1', url: 'https://images.unsplash.com/photo-1594359210750-ff5c5d383ca2?w=800&q=80', category: 'brows', alt: 'Powder Brows - Soft Makeup Look', order: 1 },
+  // Brows - Ombre Brows (gradient effect)
+  { id: '2', url: 'https://images.unsplash.com/photo-1588421357574-87938a86fa28?w=800&q=80', category: 'brows', alt: 'Ombre Brows - Gradient Effect', order: 2 },
+  // Brows - Microblading / Nano Brows (hair-like strokes)
+  { id: '3', url: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&q=80', category: 'brows', alt: 'Microblading - Natural Hair Strokes', order: 3 },
+  // Brows - Combo Brows (strokes with shading)
+  { id: '4', url: 'https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=800&q=80', category: 'brows', alt: 'Combo Brows - Strokes & Shading', order: 4 },
+  // Brows - Brow Lamination (fuller, groomed)
+  { id: '5', url: 'https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=800&q=80', category: 'brows', alt: 'Brow Lamination - Fuller Brows', order: 5 },
+  // Brows - Microshading (soft powdered effect)
+  { id: '6', url: 'https://images.unsplash.com/photo-1607779097040-26e80aa78e66?w=800&q=80', category: 'brows', alt: 'Microshading - Soft Powdered Effect', order: 6 },
+  // Lips - Lip Blushing (enhanced color and fullness)
+  { id: '7', url: 'https://images.unsplash.com/photo-1596704017254-9b121068fb31?w=800&q=80', category: 'lips', alt: 'Lip Blushing - Enhanced Color', order: 7 },
+  { id: '8', url: 'https://images.unsplash.com/photo-1583001931096-959e9a1a6223?w=800&q=80', category: 'lips', alt: 'Lip Blushing - Natural Fullness', order: 8 },
+  { id: '9', url: 'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=800&q=80', category: 'lips', alt: 'Lip Blushing - Symmetry Enhancement', order: 9 },
+  // Lashes - Lash Lift & Tint
+  { id: '10', url: 'https://images.unsplash.com/photo-1560066984-138dadb4c035?w=800&q=80', category: 'lashes', alt: 'Lash Lift & Tint - Curled Lashes', order: 10 },
+  { id: '11', url: 'https://images.unsplash.com/photo-1597225244660-1cd128c64284?w=800&q=80', category: 'lashes', alt: 'Lash Lift & Tint - Darkened Lashes', order: 11 },
 ];
 
 export default function GalleryPage() {
