@@ -128,18 +128,19 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Image */}
             <div className="relative">
-              <div className="aspect-[4/5] rounded-card overflow-hidden shadow-elegant">
+              <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-elegant">
                 <EditableImage
                   settingKey="about_image"
                   fallback="/images/about-artist.png"
                   alt="About CreativeMicroInk"
                   fill
-                  className="object-cover object-top"
+                  className="object-cover object-center"
                   containerClassName="relative w-full h-full"
+                  quality={100}
                 />
               </div>
               {/* Decorative element */}
-              <div className="absolute -bottom-6 -right-6 w-32 h-32 border-2 border-gold/30 rounded-card -z-10" />
+              <div className="absolute -bottom-6 -right-6 w-32 h-32 border-2 border-gold/30 rounded-2xl -z-10" />
             </div>
 
             {/* Content */}

@@ -16,6 +16,8 @@ interface EditableImageProps {
   height?: number;
   priority?: boolean;
   sizes?: string;
+  quality?: number;
+  unoptimized?: boolean;
 }
 
 export default function EditableImage({
@@ -29,6 +31,8 @@ export default function EditableImage({
   height,
   priority = false,
   sizes,
+  quality = 85,
+  unoptimized = false,
 }: EditableImageProps) {
   const { isAdmin } = useAuth();
   const { getSetting, uploadImage } = useSettings();
@@ -113,6 +117,8 @@ export default function EditableImage({
           src={imageUrl}
           alt={alt}
           priority={priority}
+          quality={quality}
+          unoptimized={unoptimized}
           className={`${className} ${fill ? 'object-cover' : ''}`}
           {...imageProps}
         />

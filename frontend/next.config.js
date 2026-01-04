@@ -104,14 +104,7 @@ const nextConfig = {
 
   // Redirects
   async redirects() {
-    return [
-      // Redirect /admin to /admin/dashboard
-      {
-        source: '/admin',
-        destination: '/admin/dashboard',
-        permanent: false,
-      },
-    ];
+    return [];
   },
 
   // Rewrites (useful for API proxying during development)
