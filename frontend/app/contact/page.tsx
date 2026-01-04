@@ -37,7 +37,7 @@ export default function ContactPage() {
     }));
   };
 
-  const phone = getSetting('contact_phone', '(727) 307-7214');
+  const phone = getSetting('contact_phone', '(718) 954-5525');
   const email = getSetting('contact_email', 'Creativemicroink@gmail.com');
   const address = getSetting('contact_address', '1612 W Waters Ave Suite #103, Tampa, FL 33604');
 
@@ -128,7 +128,7 @@ export default function ContactPage() {
                   >
                     <EditableText
                       settingKey="contact_phone"
-                      fallback="(727) 307-7214"
+                      fallback="(718) 954-5525"
                       as="span"
                     />
                   </a>

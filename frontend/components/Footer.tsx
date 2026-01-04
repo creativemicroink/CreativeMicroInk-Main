@@ -156,12 +156,12 @@ export default function Footer() {
                   />
                 </svg>
                 <a
-                  href={`tel:${getSetting('contact_phone', '(727) 307-7214').replace(/[^0-9+]/g, '')}`}
+                  href={`tel:${getSetting('contact_phone', '(718) 954-5525').replace(/[^0-9+]/g, '')}`}
                   className="hover:text-gold transition-colors"
                 >
                   <EditableText
                     settingKey="contact_phone"
-                    fallback="(727) 307-7214"
+                    fallback="(718) 954-5525"
                     as="span"
                   />
                 </a>
