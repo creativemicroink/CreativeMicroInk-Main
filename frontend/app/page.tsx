@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState, useRef, useCallback } from 'react';
+import { useEffect, useState } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
 import EditableText from '@/components/EditableText';
@@ -30,45 +30,12 @@ const featureIcons: Record<string, JSX.Element> = {
 export default function Home() {
   const { getSetting } = useSettings();
   const [galleryImages, setGalleryImages] = useState<GalleryImage[]>([]);
-  const [parallaxOffset, setParallaxOffset] = useState(0);
-  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
-  const heroRef = useRef<HTMLElement>(null);
 
   useEffect(() => {
     // Fetch gallery images for preview
     apiClient.getGalleryImages().then((data) => {
       setGalleryImages(data.slice(0, 4));
     }).catch(console.error);
-  }, []);
-
-  // Parallax scroll effect
-  useEffect(() => {
-    const handleScroll = () => {
-      if (heroRef.current) {
-        const scrolled = window.pageYOffset;
-        const heroHeight = heroRef.current.offsetHeight;
-        if (scrolled < heroHeight) {
-          setParallaxOffset(scrolled * 0.4);
-        }
-      }
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
-
-  // Mouse movement effect on hero
-  const handleMouseMove = useCallback((e: React.MouseEvent<HTMLElement>) => {
-    if (heroRef.current) {
-      const rect = heroRef.current.getBoundingClientRect();
-      const x = (e.clientX - rect.left) / rect.width - 0.5;
-      const y = (e.clientY - rect.top) / rect.height - 0.5;
-      setMousePosition({ x: x * 20, y: y * 20 });
-    }
-  }, []);
-
-  const handleMouseLeave = useCallback(() => {
-    setMousePosition({ x: 0, y: 0 });
   }, []);
 
   // Parse testimonials from settings
@@ -86,36 +53,23 @@ export default function Home() {
   return (
     <div className="bg-cream">
       {/* Hero Section - Full viewport */}
-      <section
-        ref={heroRef}
-        onMouseMove={handleMouseMove}
-        onMouseLeave={handleMouseLeave}
-        className="relative min-h-screen flex items-center justify-center overflow-hidden"
-      >
-        {/* Background Image with Parallax */}
-        <div
-          className="absolute inset-0 transition-transform duration-100 ease-out"
-          style={{ transform: `translateY(${parallaxOffset}px) scale(1.1)` }}
-        >
-          <EditableImage
-            settingKey="hero_image"
-            fallback="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1920&q=80"
-            alt="Luxury permanent makeup"
-            fill
-            priority
-            className="object-cover"
-            containerClassName="absolute inset-0"
-          />
-        </div>
+      <section className="relative min-h-screen flex items-center justify-center">
+        {/* Background Image */}
+        <EditableImage
+          settingKey="hero_image"
+          fallback="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=1920&q=80"
+          alt="Luxury permanent makeup"
+          fill
+          priority
+          className="object-cover"
+          containerClassName="absolute inset-0"
+        />
 
         {/* Overlay */}
         <div className="hero-overlay absolute inset-0" />
 
-        {/* Content with Mouse Movement Effect */}
-        <div
-          className="relative z-10 text-center text-white max-w-4xl px-6 transition-transform duration-300 ease-out"
-          style={{ transform: `translate(${mousePosition.x}px, ${mousePosition.y}px)` }}
-        >
+        {/* Content */}
+        <div className="relative z-10 text-center text-white max-w-4xl px-6">
           <EditableText
             settingKey="hero_title"
             fallback="Enhance Your Natural Beauty"
