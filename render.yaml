@@ -12,7 +12,7 @@ services:
     rootDir: backend
 
     # Build Configuration
-    buildCommand: npm ci --include=dev && npm run build && node dist/db/setup.js
+    buildCommand: npm ci --include=dev && npm run build && cp -r src/db/migrations dist/db/ && node dist/db/setup.js
     startCommand: npm start
 
     # Health Check
