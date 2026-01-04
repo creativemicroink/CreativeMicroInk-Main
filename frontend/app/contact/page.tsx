@@ -19,15 +19,23 @@ export default function ContactPage() {
     e.preventDefault();
     setStatus('sending');
 
-    // Simulate form submission
-    // In production, this would send to your backend
-    try {
-      await new Promise((resolve) => setTimeout(resolve, 1000));
+    // Create mailto link with form data
+    const subject = encodeURIComponent(`Website Inquiry from ${formData.name}`);
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\n` +
+      `Email: ${formData.email}\n` +
+      `Phone: ${formData.phone || 'Not provided'}\n\n` +
+      `Message:\n${formData.message}`
+    );
+
+    // Open email client
+    window.location.href = `mailto:Creativemicroink@gmail.com?subject=${subject}&body=${body}`;
+
+    // Show success after a brief delay
+    setTimeout(() => {
       setStatus('success');
       setFormData({ name: '', email: '', phone: '', message: '' });
-    } catch {
-      setStatus('error');
-    }
+    }, 500);
   };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
@@ -37,8 +45,8 @@ export default function ContactPage() {
     }));
   };
 
-  const phone = getSetting('contact_phone', '(718) 954-5525');
-  const email = getSetting('contact_email', 'Creativemicroink@gmail.com');
+  const phone = '(718) 954-5525';
+  const email = 'Creativemicroink@gmail.com';
   const address = getSetting('contact_address', '1612 W Waters Ave Suite #103, Tampa, FL 33604');
 
   return (
@@ -123,14 +131,10 @@ export default function ContactPage() {
                 <div>
                   <h3 className="font-semibold text-dark text-lg mb-1">Phone</h3>
                   <a
-                    href={`tel:${phone.replace(/[^0-9+]/g, '')}`}
+                    href="tel:7189545525"
                     className="text-muted hover:text-gold transition-colors text-lg"
                   >
-                    <EditableText
-                      settingKey="contact_phone"
-                      fallback="(718) 954-5525"
-                      as="span"
-                    />
+                    (718) 954-5525
                   </a>
                   <p className="text-sm text-muted mt-1">Call or text for appointments</p>
                 </div>
@@ -146,14 +150,10 @@ export default function ContactPage() {
                 <div>
                   <h3 className="font-semibold text-dark text-lg mb-1">Email</h3>
                   <a
-                    href={`mailto:${email}`}
+                    href="mailto:Creativemicroink@gmail.com"
                     className="text-muted hover:text-gold transition-colors"
                   >
-                    <EditableText
-                      settingKey="contact_email"
-                      fallback="Creativemicroink@gmail.com"
-                      as="span"
-                    />
+                    Creativemicroink@gmail.com
                   </a>
                   <p className="text-sm text-muted mt-1">We&apos;ll respond within 24 hours</p>
                 </div>
