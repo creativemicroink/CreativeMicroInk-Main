@@ -1,8 +1,25 @@
 import { Router, Response } from 'express';
+import multer from 'multer';
 import { query } from '../db/connection';
 import { verifyToken, optionalAuth, AuthenticatedRequest } from '../middleware/auth';
+import { uploadImage } from '../utils/cloudinary';
 
 const router = Router();
+
+// Configure multer for memory storage (image uploads)
+const upload = multer({
+  storage: multer.memoryStorage(),
+  limits: {
+    fileSize: 10 * 1024 * 1024, // 10MB limit
+  },
+  fileFilter: (_req, file, cb) => {
+    if (file.mimetype.startsWith('image/')) {
+      cb(null, true);
+    } else {
+      cb(new Error('Only image files are allowed'));
+    }
+  },
+});
 
 // Setting interface for database results
 interface SettingRow {
@@ -14,6 +31,7 @@ interface SettingRow {
 
 // Public settings that can be accessed without authentication
 const PUBLIC_SETTINGS = [
+  // Site basics
   'site_name',
   'site_description',
   'contact_email',
@@ -23,9 +41,67 @@ const PUBLIC_SETTINGS = [
   'social_facebook',
   'social_instagram',
   'social_twitter',
+  // Hero section
+  'hero_image',
   'hero_title',
   'hero_subtitle',
+  'hero_cta_text',
+  'hero_cta_secondary_text',
+  'hero_overlay_opacity',
+  // About section
+  'about_title',
+  'about_subtitle',
+  'about_description',
+  'about_image',
+  'about_credentials',
   'about_text',
+  // Features section
+  'features_title',
+  'features_subtitle',
+  'feature_1_icon',
+  'feature_1_title',
+  'feature_1_description',
+  'feature_2_icon',
+  'feature_2_title',
+  'feature_2_description',
+  'feature_3_icon',
+  'feature_3_title',
+  'feature_3_description',
+  // Services section
+  'services_title',
+  'services_subtitle',
+  'services_cta_text',
+  // Gallery section
+  'gallery_title',
+  'gallery_subtitle',
+  'gallery_cta_text',
+  // CTA section
+  'cta_title',
+  'cta_subtitle',
+  'cta_button_text',
+  'cta_background_image',
+  // Testimonials section
+  'testimonials_title',
+  'testimonials_subtitle',
+  'testimonials',
+  // Footer
+  'footer_tagline',
+  'footer_copyright',
+  // Branding
+  'logo_text',
+  'logo_image',
+  'tagline',
+  // Booking
+  'booking_title',
+  'booking_subtitle',
+  'booking_info_text',
+  // Contact
+  'contact_title',
+  'contact_subtitle',
+  // SEO
+  'meta_title',
+  'meta_description',
+  'meta_keywords',
 ];
 
 /**
@@ -247,6 +323,51 @@ router.delete('/:key', verifyToken, async (req: AuthenticatedRequest, res: Respo
   } catch (error) {
     console.error('Delete setting error:', error);
     res.status(500).json({ error: 'Failed to delete setting' });
+  }
+});
+
+/**
+ * POST /api/settings/upload-image
+ * Upload an image and save URL to a setting (admin only)
+ */
+router.post('/upload-image', verifyToken, upload.single('image'), async (req: AuthenticatedRequest, res: Response) => {
+  try {
+    const { settingKey } = req.body;
+    const file = req.file;
+
+    if (!settingKey) {
+      res.status(400).json({ error: 'Setting key is required' });
+      return;
+    }
+
+    if (!file) {
+      res.status(400).json({ error: 'Image file is required' });
+      return;
+    }
+
+    // Upload to Cloudinary
+    const uploadResult = await uploadImage(file.buffer, {
+      folder: 'creative-micro/site-content',
+    });
+
+    // Save the image URL to the setting
+    const result = await query<SettingRow>(
+      `INSERT INTO site_settings (key, value, updated_at)
+       VALUES ($1, $2, NOW())
+       ON CONFLICT (key) DO UPDATE SET value = $2, updated_at = NOW()
+       RETURNING *`,
+      [settingKey, uploadResult.secureUrl]
+    );
+
+    res.json({
+      message: 'Image uploaded successfully',
+      setting: result.rows[0],
+      imageUrl: uploadResult.secureUrl,
+      thumbnailUrl: uploadResult.thumbnailUrl,
+    });
+  } catch (error) {
+    console.error('Upload setting image error:', error);
+    res.status(500).json({ error: 'Failed to upload image' });
   }
 });
 

@@ -25,7 +25,7 @@ export default function LoginPage() {
 
       if (response.token) {
         setToken(response.token);
-        router.push('/admin');
+        router.push('/');
       } else {
         setError('Invalid response from server');
       }

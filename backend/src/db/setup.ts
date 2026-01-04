@@ -48,28 +48,37 @@ function getPoolConfig(): PoolConfig {
 }
 
 /**
- * Read the migration SQL file
+ * Read all migration SQL files in order
  */
-function readMigrationFile(): string {
-  const migrationPath = path.join(__dirname, 'migrations', '001_initial.sql');
+function readMigrationFiles(): string[] {
+  const migrationsDir = path.join(__dirname, 'migrations');
 
-  if (!fs.existsSync(migrationPath)) {
-    throw new Error(`Migration file not found: ${migrationPath}`);
+  if (!fs.existsSync(migrationsDir)) {
+    throw new Error(`Migrations directory not found: ${migrationsDir}`);
   }
 
-  return fs.readFileSync(migrationPath, 'utf-8');
+  const files = fs.readdirSync(migrationsDir)
+    .filter(f => f.endsWith('.sql'))
+    .sort(); // Sort to ensure order: 001, 002, etc.
+
+  return files.map(file => {
+    const filePath = path.join(migrationsDir, file);
+    return { name: file, sql: fs.readFileSync(filePath, 'utf-8') };
+  }).map(m => m.sql);
 }
 
 /**
- * Run the migration SQL
+ * Run all migration SQL files
  */
 async function runMigration(pool: Pool): Promise<void> {
-  console.log('Reading migration file...');
-  const migrationSQL = readMigrationFile();
+  console.log('Reading migration files...');
+  const migrations = readMigrationFiles();
 
-  console.log('Running migration...');
-  await pool.query(migrationSQL);
-  console.log('Migration completed successfully!');
+  for (let i = 0; i < migrations.length; i++) {
+    console.log(`Running migration ${i + 1} of ${migrations.length}...`);
+    await pool.query(migrations[i]);
+  }
+  console.log('All migrations completed successfully!');
 }
 
 /**

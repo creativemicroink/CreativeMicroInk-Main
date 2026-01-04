@@ -59,6 +59,14 @@ export interface ApiError {
   status?: number;
 }
 
+export interface SiteSettings {
+  [key: string]: string;
+}
+
+export interface SettingsResponse {
+  settings: SiteSettings;
+}
+
 class ApiClient {
   private baseUrl: string;
 
@@ -199,6 +207,51 @@ class ApiClient {
       method: 'POST',
       body: JSON.stringify({ imageIds }),
     });
+  }
+
+  // Settings
+  async getSettings(): Promise<SiteSettings> {
+    const response = await this.request<SettingsResponse>('/settings');
+    return response.settings;
+  }
+
+  async updateSetting(key: string, value: string): Promise<void> {
+    await this.request('/settings', {
+      method: 'POST',
+      body: JSON.stringify({ key, value }),
+    });
+  }
+
+  async updateSettings(settings: Record<string, string>): Promise<void> {
+    await this.request('/settings/bulk', {
+      method: 'PUT',
+      body: JSON.stringify({ settings }),
+    });
+  }
+
+  async uploadSettingImage(settingKey: string, file: File): Promise<{ imageUrl: string }> {
+    const token = getToken();
+
+    const formData = new FormData();
+    formData.append('image', file);
+    formData.append('settingKey', settingKey);
+
+    const headers: HeadersInit = {};
+    if (token) {
+      (headers as Record<string, string>)['Authorization'] = `Bearer ${token}`;
+    }
+
+    const response = await fetch(`${this.baseUrl}/settings/upload-image`, {
+      method: 'POST',
+      headers,
+      body: formData,
+    });
+
+    if (!response.ok) {
+      throw new Error('Failed to upload image');
+    }
+
+    return response.json();
   }
 }
 

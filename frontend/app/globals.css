@@ -1,73 +1,207 @@
+@import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --bg: #FAF7F2;
-  --muted: #9B9B9B;
-  --accent: #D4A574;
-  --text: #2D2D2D;
+  --bg: #FAF8F5;
+  --muted: #8B8B8B;
+  --gold: #C9A962;
+  --gold-light: #D4BC7D;
+  --gold-dark: #B8944A;
+  --text: #1A1A1A;
   --card: #ffffff;
-  --radius: 12px;
-  --container: 1200px;
+  --radius: 16px;
+  --container: 1280px;
 }
 
-* {
-  box-sizing: border-box;
-  padding: 0;
-  margin: 0;
-}
-
-html,
-body {
-  max-width: 100vw;
-  overflow-x: hidden;
-  font-family: 'Inter', system-ui, 'Segoe UI', Roboto, sans-serif;
-}
-
-body {
-  color: var(--text);
-  background: var(--bg);
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-/* Custom utility classes */
-@layer components {
-  .container-main {
-    @apply max-w-container mx-auto px-4 sm:px-6 lg:px-8;
+@layer base {
+  html {
+    scroll-behavior: smooth;
   }
 
+  * {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+  }
+
+  body {
+    @apply font-sans text-dark bg-cream antialiased;
+    max-width: 100vw;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif font-semibold tracking-tight;
+  }
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
+}
+
+@layer components {
+  /* Container */
+  .container-main {
+    @apply max-w-container mx-auto px-6 sm:px-8 lg:px-12;
+  }
+
+  /* Luxurious buttons */
   .btn-primary {
-    @apply inline-block bg-rose-accent text-white px-6 py-3 rounded-card
-           hover:bg-rose-dark transition-colors duration-200 font-medium;
+    @apply inline-flex items-center justify-center gap-2
+           bg-gradient-gold text-white
+           px-8 py-4 rounded-soft
+           font-medium tracking-wide
+           transition-all duration-300
+           hover:shadow-gold-hover hover:scale-[1.02]
+           active:scale-[0.98];
   }
 
   .btn-secondary {
-    @apply inline-block border-2 border-rose-accent text-rose-accent px-6 py-3 rounded-card
-           hover:bg-rose-accent hover:text-white transition-colors duration-200 font-medium;
+    @apply inline-flex items-center justify-center gap-2
+           border-2 border-gold text-gold
+           px-8 py-4 rounded-soft
+           font-medium tracking-wide
+           transition-all duration-300
+           hover:bg-gold hover:text-white
+           active:scale-[0.98];
   }
 
+  .btn-text {
+    @apply inline-flex items-center gap-2
+           text-gold font-medium
+           transition-colors duration-300
+           hover:text-gold-dark;
+  }
+
+  /* Elegant cards */
   .card {
-    @apply bg-white rounded-card p-5 shadow-card hover:shadow-card-hover transition-shadow duration-200;
+    @apply bg-white rounded-card p-8
+           shadow-elegant hover:shadow-elegant-hover
+           transition-all duration-300;
   }
 
+  .card-bordered {
+    @apply bg-white rounded-card p-8
+           border border-cream-300
+           hover:border-gold/30
+           transition-all duration-300;
+  }
+
+  /* Section styling */
   .section-title {
-    @apply text-2xl sm:text-3xl font-bold text-dark mb-6;
+    @apply font-serif text-heading-2 md:text-heading-1
+           text-dark mb-4 text-center;
   }
 
+  .section-subtitle {
+    @apply text-muted text-lg md:text-xl
+           max-w-2xl mx-auto text-center mb-12;
+  }
+
+  /* Dividers */
+  .divider-gold {
+    @apply w-24 h-0.5 bg-gradient-gold mx-auto my-8;
+  }
+
+  /* Form elements */
   .input-field {
-    @apply w-full px-4 py-3 border border-gray-300 rounded-card
-           focus:outline-none focus:ring-2 focus:ring-rose-accent focus:border-transparent
+    @apply w-full px-5 py-4
+           bg-white border border-cream-300 rounded-soft
+           font-sans text-dark
+           placeholder:text-muted-light
+           focus:outline-none focus:ring-2 focus:ring-gold/30 focus:border-gold
            transition-all duration-200;
   }
 
   .label-text {
-    @apply block text-sm font-medium text-dark mb-2;
+    @apply block text-sm font-medium text-dark mb-2 tracking-wide;
   }
+
+  /* Inline editing styles */
+  .editable {
+    @apply relative cursor-pointer;
+  }
+
+  .editable:hover .edit-indicator {
+    @apply opacity-100;
+  }
+
+  .edit-indicator {
+    @apply absolute -top-2 -right-2
+           w-8 h-8 bg-gold rounded-full
+           flex items-center justify-center
+           opacity-0 transition-opacity duration-200
+           shadow-gold z-50;
+  }
+
+  .editing-active {
+    @apply ring-2 ring-gold ring-offset-2 rounded-soft;
+  }
+
+  /* Image editing overlay */
+  .image-edit-overlay {
+    @apply absolute inset-0 bg-black/40
+           flex items-center justify-center
+           opacity-0 transition-opacity duration-300
+           cursor-pointer;
+  }
+
+  .editable:hover .image-edit-overlay {
+    @apply opacity-100;
+  }
+}
+
+/* Hero overlay gradient */
+.hero-overlay {
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.3) 0%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+}
+
+/* Smooth scroll sections */
+section {
+  @apply scroll-mt-20;
+}
+
+/* Gallery grid with elegant spacing */
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Services grid */
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+}
+
+/* Image hover effects */
+.image-hover-zoom {
+  @apply overflow-hidden;
+}
+
+.image-hover-zoom img {
+  @apply transition-transform duration-500 ease-out;
+}
+
+.image-hover-zoom:hover img {
+  @apply scale-110;
+}
+
+/* Gold text gradient */
+.text-gold-gradient {
+  background: linear-gradient(135deg, #C9A962 0%, #D4BC7D 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* Booking iframe styles */
@@ -81,36 +215,6 @@ a {
   .booking-iframe {
     height: 600px;
   }
-}
-
-/* Animation utilities */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-in {
-  animation: fadeIn 0.3s ease-out forwards;
-}
-
-/* Gallery grid */
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-  gap: 1.25rem;
-}
-
-/* Services grid */
-.services-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-  gap: 1.25rem;
 }
 
 /* Admin sidebar */
@@ -129,5 +233,50 @@ a {
 
   .admin-content {
     @apply ml-0;
+  }
+}
+
+/* Testimonial card styling */
+.testimonial-card {
+  @apply relative bg-white p-8 rounded-card shadow-elegant;
+}
+
+.testimonial-card::before {
+  content: '"';
+  @apply absolute top-4 left-6 text-6xl text-gold/20 font-serif leading-none;
+}
+
+/* Feature icon styling */
+.feature-icon {
+  @apply w-16 h-16 rounded-full bg-gold/10
+         flex items-center justify-center
+         text-gold mb-6;
+}
+
+/* Stagger animation for lists */
+.stagger-fade-in > * {
+  @apply opacity-0 animate-fade-in;
+}
+
+.stagger-fade-in > *:nth-child(1) { animation-delay: 0.1s; }
+.stagger-fade-in > *:nth-child(2) { animation-delay: 0.2s; }
+.stagger-fade-in > *:nth-child(3) { animation-delay: 0.3s; }
+.stagger-fade-in > *:nth-child(4) { animation-delay: 0.4s; }
+.stagger-fade-in > *:nth-child(5) { animation-delay: 0.5s; }
+.stagger-fade-in > *:nth-child(6) { animation-delay: 0.6s; }
+
+/* Loading skeleton */
+.skeleton {
+  @apply animate-pulse bg-cream-300 rounded;
+}
+
+/* Accessibility: Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }
