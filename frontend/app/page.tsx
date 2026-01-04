@@ -177,7 +177,7 @@ export default function Home() {
                       clipRule="evenodd"
                     />
                   </svg>
-                  <span className="font-medium">5+ Years Experience</span>
+                  <span className="font-medium">Family Owned</span>
                 </div>
                 <div className="flex items-center gap-2 text-dark">
                   <svg className="w-5 h-5 text-gold" fill="currentColor" viewBox="0 0 20 20">
@@ -187,7 +187,7 @@ export default function Home() {
                       clipRule="evenodd"
                     />
                   </svg>
-                  <span className="font-medium">1000+ Happy Clients</span>
+                  <span className="font-medium">Natural Results</span>
                 </div>
               </div>
             </div>
