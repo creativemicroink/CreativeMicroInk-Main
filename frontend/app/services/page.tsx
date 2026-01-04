@@ -215,27 +215,95 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Special Offers Banner */}
-      <section className="bg-gradient-to-r from-gold-dark via-gold to-gold-light py-6 relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute inset-0" style={{ backgroundImage: 'url("data:image/svg+xml,%3Csvg width="60" height="60" viewBox="0 0 60 60" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23000" fill-opacity="0.4"%3E%3Cpath d="M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")' }} />
-        </div>
-        <div className="container-main relative">
-          <div className="flex flex-col md:flex-row items-center justify-center gap-4 md:gap-8 text-center md:text-left">
-            <div className="flex items-center gap-3">
-              <svg className="w-8 h-8 text-dark" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
-              </svg>
-              <span className="text-dark font-serif text-xl font-semibold">Limited Time Offers</span>
+      {/* Special Offers Section */}
+      <section className="py-20 bg-white">
+        <div className="container-main">
+          <div className="text-center mb-16">
+            <span className="inline-block px-4 py-1 bg-gold/10 text-gold text-sm font-medium uppercase tracking-widest rounded-full mb-4">
+              Limited Time
+            </span>
+            <h2 className="font-serif text-3xl md:text-4xl text-dark mb-4">Special Offers</h2>
+            <p className="text-muted max-w-2xl mx-auto">
+              Take advantage of our exclusive deals and save on your beauty transformation
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {/* Deal 1 - Bring a Friend */}
+            <div className="group relative bg-gradient-to-br from-gold/5 to-gold/10 rounded-2xl p-8 border-2 border-gold/20 hover:border-gold/40 transition-all duration-300 hover:shadow-xl">
+              <div className="absolute top-4 right-4">
+                <span className="px-3 py-1 bg-gold text-dark text-xs font-bold uppercase rounded-full">
+                  Best Value
+                </span>
+              </div>
+              <div className="mb-6">
+                <div className="w-16 h-16 bg-gold/20 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <svg className="w-8 h-8 text-gold" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z" />
+                  </svg>
+                </div>
+                <h3 className="font-serif text-2xl text-dark mb-2">You & Friend Brows</h3>
+                <p className="text-muted mb-4">Bring a friend and both get beautiful brows at a special price!</p>
+              </div>
+              <div className="flex items-baseline gap-2 mb-6">
+                <span className="text-4xl font-bold text-gold">$400</span>
+                <span className="text-muted line-through">$760</span>
+                <span className="text-sm text-green-600 font-medium">Save $360</span>
+              </div>
+              <Link href="/booking" className="block w-full text-center py-3 bg-dark text-white rounded-xl hover:bg-gold hover:text-dark transition-all font-medium">
+                Book Together
+              </Link>
             </div>
-            <div className="hidden md:block w-px h-8 bg-dark/20" />
-            <div className="flex flex-wrap justify-center gap-3">
-              <span className="px-4 py-2 bg-white/90 text-dark rounded-full text-sm font-medium shadow-md">
-                You & Friend Brows - $400
-              </span>
-              <span className="px-4 py-2 bg-white/90 text-dark rounded-full text-sm font-medium shadow-md">
-                Brows + Lip Blush - $400
-              </span>
+
+            {/* Deal 2 - Brows + Lips Combo */}
+            <div className="group relative bg-gradient-to-br from-rose-50 to-rose-100/50 rounded-2xl p-8 border-2 border-rose-200/50 hover:border-rose-300 transition-all duration-300 hover:shadow-xl">
+              <div className="absolute top-4 right-4">
+                <span className="px-3 py-1 bg-rose-400 text-white text-xs font-bold uppercase rounded-full">
+                  Popular
+                </span>
+              </div>
+              <div className="mb-6">
+                <div className="w-16 h-16 bg-rose-200/50 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <svg className="w-8 h-8 text-rose-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z" />
+                  </svg>
+                </div>
+                <h3 className="font-serif text-2xl text-dark mb-2">Brows + Lip Blush</h3>
+                <p className="text-muted mb-4">Complete your look with perfect brows and luscious lips!</p>
+              </div>
+              <div className="flex items-baseline gap-2 mb-6">
+                <span className="text-4xl font-bold text-rose-500">$400</span>
+                <span className="text-muted line-through">$780</span>
+                <span className="text-sm text-green-600 font-medium">Save $380</span>
+              </div>
+              <Link href="/booking" className="block w-full text-center py-3 bg-dark text-white rounded-xl hover:bg-rose-500 transition-all font-medium">
+                Get the Combo
+              </Link>
+            </div>
+
+            {/* Deal 3 - First Time Client */}
+            <div className="group relative bg-gradient-to-br from-purple-50 to-purple-100/50 rounded-2xl p-8 border-2 border-purple-200/50 hover:border-purple-300 transition-all duration-300 hover:shadow-xl">
+              <div className="absolute top-4 right-4">
+                <span className="px-3 py-1 bg-purple-500 text-white text-xs font-bold uppercase rounded-full">
+                  New Clients
+                </span>
+              </div>
+              <div className="mb-6">
+                <div className="w-16 h-16 bg-purple-200/50 rounded-2xl flex items-center justify-center mb-4 group-hover:scale-110 transition-transform">
+                  <svg className="w-8 h-8 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M12 8v13m0-13V6a2 2 0 112 2h-2zm0 0V5.5A2.5 2.5 0 109.5 8H12zm-7 4h14M5 12a2 2 0 110-4h14a2 2 0 110 4M5 12v7a2 2 0 002 2h10a2 2 0 002-2v-7" />
+                  </svg>
+                </div>
+                <h3 className="font-serif text-2xl text-dark mb-2">First Visit Special</h3>
+                <p className="text-muted mb-4">New to permanent makeup? Get a free consultation included!</p>
+              </div>
+              <div className="flex items-baseline gap-2 mb-6">
+                <span className="text-4xl font-bold text-purple-500">FREE</span>
+                <span className="text-muted">Consultation</span>
+              </div>
+              <Link href="/booking" className="block w-full text-center py-3 bg-dark text-white rounded-xl hover:bg-purple-500 transition-all font-medium">
+                Book Consultation
+              </Link>
             </div>
           </div>
         </div>
