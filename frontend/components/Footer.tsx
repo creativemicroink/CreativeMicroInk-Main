@@ -43,7 +43,7 @@ export default function Footer() {
             {/* Social Links */}
             <div className="flex gap-3 mt-6">
               <a
-                href={getSetting('social_instagram', '#')}
+                href={getSetting('social_instagram', 'https://www.instagram.com/creativemicroink')}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center text-white hover:bg-gold hover:text-dark transition-all duration-300"
@@ -54,7 +54,7 @@ export default function Footer() {
                 </svg>
               </a>
               <a
-                href={getSetting('social_facebook', '#')}
+                href={getSetting('social_facebook', 'https://www.facebook.com/people/Creative-Micro-Ink/100063675476894/')}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-10 h-10 bg-white/10 rounded-full flex items-center justify-center text-white hover:bg-gold hover:text-dark transition-all duration-300"

@@ -97,6 +97,15 @@ INSERT INTO site_settings (key, value) VALUES
 ON CONFLICT (key) DO NOTHING;
 
 -- ============================================
+-- SOCIAL MEDIA SETTINGS
+-- ============================================
+INSERT INTO site_settings (key, value) VALUES
+    ('social_instagram', 'https://www.instagram.com/creativemicroink'),
+    ('social_facebook', 'https://www.facebook.com/people/Creative-Micro-Ink/100063675476894/'),
+    ('social_tiktok', '')
+ON CONFLICT (key) DO NOTHING;
+
+-- ============================================
 -- BOOKING PAGE SETTINGS
 -- ============================================
 INSERT INTO site_settings (key, value) VALUES

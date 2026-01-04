@@ -182,7 +182,7 @@ export default function ContactPage() {
               <h3 className="font-serif text-xl text-dark mb-4">Follow Us</h3>
               <div className="flex gap-4">
                 <a
-                  href={getSetting('social_instagram', '#')}
+                  href={getSetting('social_instagram', 'https://www.instagram.com/creativemicroink')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-12 h-12 bg-white rounded-xl shadow-elegant flex items-center justify-center text-dark hover:bg-gold hover:text-dark transition-all hover:shadow-xl"
@@ -193,7 +193,7 @@ export default function ContactPage() {
                   </svg>
                 </a>
                 <a
-                  href={getSetting('social_facebook', '#')}
+                  href={getSetting('social_facebook', 'https://www.facebook.com/people/Creative-Micro-Ink/100063675476894/')}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-12 h-12 bg-white rounded-xl shadow-elegant flex items-center justify-center text-dark hover:bg-gold hover:text-dark transition-all hover:shadow-xl"
