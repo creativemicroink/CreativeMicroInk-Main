@@ -81,26 +81,29 @@ async function createAdminUser(pool: Pool): Promise<void> {
   // Hash the password
   const passwordHash = await bcrypt.hash(ADMIN_PASSWORD, BCRYPT_ROUNDS);
 
+  // Normalize email to lowercase (login does the same)
+  const normalizedEmail = ADMIN_EMAIL.toLowerCase().trim();
+
   // Check if admin user already exists
   const existingUser = await pool.query(
     'SELECT id, email FROM users WHERE email = $1',
-    [ADMIN_EMAIL]
+    [normalizedEmail]
   );
 
   if (existingUser.rows.length > 0) {
     // Update existing admin user's password
     await pool.query(
       'UPDATE users SET password_hash = $1, name = $2 WHERE email = $3',
-      [passwordHash, ADMIN_NAME, ADMIN_EMAIL]
+      [passwordHash, ADMIN_NAME, normalizedEmail]
     );
-    console.log(`Admin user updated: ${ADMIN_EMAIL}`);
+    console.log(`Admin user updated: ${normalizedEmail}`);
   } else {
     // Insert new admin user
     await pool.query(
       'INSERT INTO users (email, password_hash, name) VALUES ($1, $2, $3)',
-      [ADMIN_EMAIL, passwordHash, ADMIN_NAME]
+      [normalizedEmail, passwordHash, ADMIN_NAME]
     );
-    console.log(`Admin user created: ${ADMIN_EMAIL}`);
+    console.log(`Admin user created: ${normalizedEmail}`);
   }
 
   console.log('');
