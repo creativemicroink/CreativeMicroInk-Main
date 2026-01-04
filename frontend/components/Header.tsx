@@ -33,17 +33,26 @@ export default function Header() {
     return null;
   }
 
+  // Check if on home page for transparent header
+  const isHomePage = pathname === '/';
+
   return (
     <header
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-white ${
-        scrolled ? 'shadow-elegant' : ''
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
+        scrolled
+          ? 'bg-white shadow-elegant'
+          : isHomePage
+            ? 'bg-transparent'
+            : 'bg-white'
       }`}
     >
       <div className="container-main">
         <div className="flex items-center justify-between py-4">
           {/* Logo */}
           <Link href="/" className="flex items-center gap-2 group">
-            <span className="text-2xl font-serif font-bold tracking-wide text-dark group-hover:text-gold transition-colors">
+            <span className={`text-2xl font-serif font-bold tracking-wide transition-colors ${
+              !scrolled && isHomePage ? 'text-white group-hover:text-gold' : 'text-dark group-hover:text-gold'
+            }`}>
               Creative
             </span>
             <span className="text-2xl font-serif font-light tracking-wide text-gold">
@@ -57,7 +66,11 @@ export default function Header() {
               <Link
                 key={link.href}
                 href={link.href}
-                className={`relative text-sm font-medium tracking-wide uppercase transition-colors text-gold hover:text-gold-dark after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:bg-gold after:transition-all after:duration-300 ${
+                className={`relative text-sm font-medium tracking-wide uppercase transition-colors ${
+                  !scrolled && isHomePage
+                    ? 'text-white/90 hover:text-gold'
+                    : 'text-gold hover:text-gold-dark'
+                } after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:bg-gold after:transition-all after:duration-300 ${
                   pathname === link.href ? 'after:w-full' : 'after:w-0 hover:after:w-full'
                 }`}
               >
@@ -72,14 +85,18 @@ export default function Header() {
               isAdmin ? (
                 <button
                   onClick={logout}
-                  className="text-sm font-medium text-muted hover:text-dark transition-colors"
+                  className={`text-sm font-medium transition-colors ${
+                    !scrolled && isHomePage ? 'text-white/70 hover:text-white' : 'text-muted hover:text-dark'
+                  }`}
                 >
                   Logout
                 </button>
               ) : (
                 <Link
                   href="/login"
-                  className="text-sm font-medium text-muted hover:text-dark transition-colors"
+                  className={`text-sm font-medium transition-colors ${
+                    !scrolled && isHomePage ? 'text-white/70 hover:text-white' : 'text-muted hover:text-dark'
+                  }`}
                 >
                   Admin
                 </Link>
@@ -96,7 +113,9 @@ export default function Header() {
           {/* Mobile Menu Button */}
           <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className="lg:hidden p-2 text-dark transition-colors"
+            className={`lg:hidden p-2 transition-colors ${
+              !scrolled && isHomePage ? 'text-white' : 'text-dark'
+            }`}
             aria-label="Toggle menu"
           >
             <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
