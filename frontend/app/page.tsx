@@ -121,12 +121,12 @@ export default function Home() {
           <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
             {/* Image */}
             <div className="relative">
-              <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-elegant">
+              <div className="aspect-[2/3] rounded-2xl overflow-hidden shadow-elegant">
                 <Image
                   src="/images/about-artist.png"
                   alt="About CreativeMicroInk"
                   fill
-                  className="object-cover object-bottom"
+                  className="object-cover object-center"
                   unoptimized
                 />
               </div>
