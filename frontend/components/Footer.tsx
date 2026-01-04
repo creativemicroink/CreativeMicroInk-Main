@@ -137,7 +137,7 @@ export default function Footer() {
                 </svg>
                 <EditableText
                   settingKey="contact_address"
-                  fallback="123 Beauty Lane, Suite 100, City, State 12345"
+                  fallback="1612 W Waters Ave Suite #103, Tampa, FL 33604"
                   as="span"
                 />
               </li>
@@ -156,12 +156,12 @@ export default function Footer() {
                   />
                 </svg>
                 <a
-                  href={`tel:${getSetting('contact_phone', '(555) 123-4567').replace(/[^0-9+]/g, '')}`}
+                  href={`tel:${getSetting('contact_phone', '(727) 307-7214').replace(/[^0-9+]/g, '')}`}
                   className="hover:text-gold transition-colors"
                 >
                   <EditableText
                     settingKey="contact_phone"
-                    fallback="(555) 123-4567"
+                    fallback="(727) 307-7214"
                     as="span"
                   />
                 </a>
@@ -181,12 +181,12 @@ export default function Footer() {
                   />
                 </svg>
                 <a
-                  href={`mailto:${getSetting('contact_email', 'hello@creativemicroink.com')}`}
+                  href={`mailto:${getSetting('contact_email', 'Creativemicroink@gmail.com')}`}
                   className="hover:text-gold transition-colors"
                 >
                   <EditableText
                     settingKey="contact_email"
-                    fallback="hello@creativemicroink.com"
+                    fallback="Creativemicroink@gmail.com"
                     as="span"
                   />
                 </a>

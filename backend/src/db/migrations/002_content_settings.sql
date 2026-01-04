@@ -110,7 +110,10 @@ ON CONFLICT (key) DO NOTHING;
 -- ============================================
 INSERT INTO site_settings (key, value) VALUES
     ('contact_title', 'Get In Touch'),
-    ('contact_subtitle', 'We would love to hear from you. Reach out for questions or to schedule your consultation.')
+    ('contact_subtitle', 'We would love to hear from you. Reach out for questions or to schedule your consultation.'),
+    ('contact_phone', '(727) 307-7214'),
+    ('contact_email', 'Creativemicroink@gmail.com'),
+    ('contact_address', '1612 W Waters Ave Suite #103, Tampa, FL 33604')
 ON CONFLICT (key) DO NOTHING;
 
 -- ============================================
