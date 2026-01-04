@@ -73,13 +73,7 @@
     }
   ],
 
-  "redirects": [
-    {
-      "source": "/admin",
-      "destination": "/admin/dashboard",
-      "permanent": false
-    }
-  ],
+  "redirects": [],
 
   "regions": ["iad1"],
 
