@@ -122,14 +122,11 @@ export default function Home() {
             {/* Image */}
             <div className="relative">
               <div className="aspect-[3/4] rounded-2xl overflow-hidden shadow-elegant">
-                <EditableImage
-                  settingKey="about_image"
-                  fallback="/images/about-artist.png"
+                <Image
+                  src="/images/about-artist.png"
                   alt="About CreativeMicroInk"
                   fill
                   className="object-cover object-center"
-                  containerClassName="relative w-full h-full"
-                  quality={100}
                   unoptimized
                 />
               </div>
