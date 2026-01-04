@@ -57,12 +57,13 @@ export default function Home() {
         {/* Background Image */}
         <EditableImage
           settingKey="hero_image"
-          fallback="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=2560&q=90"
+          fallback="https://images.unsplash.com/photo-1560066984-138dadb4c035?w=2560&q=95&fit=crop"
           alt="Luxury permanent makeup"
           fill
           priority
-          quality={95}
+          quality={100}
           sizes="100vw"
+          unoptimized
           className="object-cover"
           containerClassName="absolute inset-0"
         />
@@ -451,11 +452,12 @@ export default function Home() {
         {/* Background */}
         <EditableImage
           settingKey="cta_background_image"
-          fallback="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=2560&q=90"
+          fallback="https://images.unsplash.com/photo-1487412947147-5cebf100ffc2?w=2560&q=95&fit=crop"
           alt="Book your appointment"
           fill
-          quality={95}
+          quality={100}
           sizes="100vw"
+          unoptimized
           className="object-cover"
           containerClassName="absolute inset-0"
         />
