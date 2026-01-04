@@ -126,7 +126,7 @@ export default function Home() {
                   src="/images/about-artist.png"
                   alt="About CreativeMicroInk"
                   fill
-                  className="object-cover object-center"
+                  className="object-cover object-top"
                   unoptimized
                 />
               </div>
