@@ -4,14 +4,17 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import { apiClient, GalleryImage } from '@/lib/api';
 
-// Fallback gallery data
+// Fallback gallery data with stock images
 const fallbackImages: GalleryImage[] = [
-  { id: '1', url: '/placeholder-1.jpg', category: 'brows', alt: 'Powder Brows Result', order: 1 },
-  { id: '2', url: '/placeholder-2.jpg', category: 'brows', alt: 'Microblading Result', order: 2 },
-  { id: '3', url: '/placeholder-3.jpg', category: 'lips', alt: 'Lip Blushing Result', order: 3 },
-  { id: '4', url: '/placeholder-4.jpg', category: 'brows', alt: 'Ombre Brows Result', order: 4 },
-  { id: '5', url: '/placeholder-5.jpg', category: 'lashes', alt: 'Lash Lift Result', order: 5 },
-  { id: '6', url: '/placeholder-6.jpg', category: 'brows', alt: 'Combo Brows Result', order: 6 },
+  { id: '1', url: 'https://images.unsplash.com/photo-1616394584738-fc6e612e71b9?w=800&q=80', category: 'brows', alt: 'Natural Powder Brows', order: 1 },
+  { id: '2', url: 'https://images.unsplash.com/photo-1588421357574-87938a86fa28?w=800&q=80', category: 'brows', alt: 'Microblading Result', order: 2 },
+  { id: '3', url: 'https://images.unsplash.com/photo-1596704017254-9b121068fb31?w=800&q=80', category: 'lips', alt: 'Lip Blush Enhancement', order: 3 },
+  { id: '4', url: 'https://images.unsplash.com/photo-1519699047748-de8e457a634e?w=800&q=80', category: 'brows', alt: 'Ombre Brows Result', order: 4 },
+  { id: '5', url: 'https://images.unsplash.com/photo-1583001931096-959e9a1a6223?w=800&q=80', category: 'lips', alt: 'Natural Lip Color', order: 5 },
+  { id: '6', url: 'https://images.unsplash.com/photo-1594359210750-ff5c5d383ca2?w=800&q=80', category: 'brows', alt: 'Combo Brows Result', order: 6 },
+  { id: '7', url: 'https://images.unsplash.com/photo-1522337360788-8b13dee7a37e?w=800&q=80', category: 'brows', alt: 'Defined Brow Shape', order: 7 },
+  { id: '8', url: 'https://images.unsplash.com/photo-1512496015851-a90fb38ba796?w=800&q=80', category: 'lips', alt: 'Soft Lip Blush', order: 8 },
+  { id: '9', url: 'https://images.unsplash.com/photo-1607779097040-26e80aa78e66?w=800&q=80', category: 'brows', alt: 'Feathered Brows', order: 9 },
 ];
 
 export default function GalleryPage() {
