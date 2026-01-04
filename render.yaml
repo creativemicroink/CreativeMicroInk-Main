@@ -12,8 +12,7 @@ services:
     rootDir: backend
 
     # Build Configuration
-    buildCommand: npm ci --include=dev && npm run build
-    preDeployCommand: node dist/db/setup.js
+    buildCommand: npm ci --include=dev && npm run build && node dist/db/setup.js
     startCommand: npm start
 
     # Health Check
