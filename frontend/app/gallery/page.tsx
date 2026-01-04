@@ -97,12 +97,12 @@ export default function GalleryPage() {
             {sortedImages.map((image) => (
               <div
                 key={image.id}
-                className="card p-0 overflow-hidden cursor-pointer group"
+                className="bg-white rounded-xl shadow-elegant overflow-hidden cursor-pointer group hover:shadow-xl transition-shadow duration-300"
                 onClick={() => setSelectedImage(image)}
               >
-                <div className="relative aspect-square bg-gray-200">
+                <div className="relative aspect-square overflow-hidden">
                   {image.url.startsWith('/placeholder') ? (
-                    <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-rose-accent/20 to-cream">
+                    <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-br from-gold/10 to-cream">
                       <span className="text-muted text-sm">{image.alt || 'Gallery Image'}</span>
                     </div>
                   ) : (
@@ -114,11 +114,10 @@ export default function GalleryPage() {
                       sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                     />
                   )}
-                  <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors duration-300" />
                 </div>
                 {image.category && (
-                  <div className="p-3">
-                    <span className="text-xs text-muted uppercase tracking-wide">
+                  <div className="p-3 bg-white">
+                    <span className="text-xs text-gold font-medium uppercase tracking-wide">
                       {image.category}
                     </span>
                   </div>
