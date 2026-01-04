@@ -68,13 +68,9 @@ export default function Header() {
                 key={link.href}
                 href={link.href}
                 className={`relative text-sm font-medium tracking-wide uppercase transition-colors ${
-                  pathname === link.href
-                    ? scrolled
-                      ? 'text-gold'
-                      : 'text-gold-light'
-                    : scrolled
-                    ? 'text-dark hover:text-gold'
-                    : 'text-white/90 hover:text-gold-light'
+                  scrolled
+                    ? 'text-gold hover:text-gold-dark'
+                    : 'text-gold-light hover:text-gold'
                 } after:absolute after:bottom-[-4px] after:left-0 after:h-[2px] after:bg-gold after:transition-all after:duration-300 ${
                   pathname === link.href ? 'after:w-full' : 'after:w-0 hover:after:w-full'
                 }`}
@@ -153,10 +149,10 @@ export default function Header() {
                     key={link.href}
                     href={link.href}
                     onClick={() => setMobileMenuOpen(false)}
-                    className={`py-3 px-4 rounded-lg text-sm font-medium tracking-wide uppercase transition-all ${
+                    className={`py-3 px-4 rounded-lg text-sm font-medium tracking-wide uppercase transition-all text-gold hover:text-gold-dark ${
                       pathname === link.href
-                        ? 'bg-gold/10 text-gold'
-                        : 'text-dark hover:bg-cream hover:text-gold'
+                        ? 'bg-gold/10 border-l-2 border-gold'
+                        : 'hover:bg-cream'
                     }`}
                   >
                     {link.label}
