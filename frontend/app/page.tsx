@@ -130,6 +130,7 @@ export default function Home() {
                   className="object-cover object-center"
                   containerClassName="relative w-full h-full"
                   quality={100}
+                  unoptimized
                 />
               </div>
               {/* Decorative element */}
